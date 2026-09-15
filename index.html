@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SRE Track</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" aria-label="Open track map">☰ Track</button>
+  <button class="brand" id="homeBtn" title="Track overview"><span class="mark">SRE</span>SRE Track<small>mastery course</small></button>
+  <div class="stats">
+    <div class="stat hide-sm"><span class="v" id="stStreak">0</span><span class="k">streak</span></div>
+    <div class="stat hide-sm"><span class="v" id="stAcc">–</span><span class="k">accuracy</span></div>
+    <div class="xpwrap">
+      <div class="row"><b id="stRank">Pager Rookie</b><span id="stXp">0 XP</span></div>
+      <div class="xpbar"><i id="xpFill"></i></div>
+    </div>
+    <button class="iconbtn" id="profileBtn">Badges</button>
+  </div>
+</header>
+<div class="shell">
+  <nav class="sidebar" id="sidebar" aria-label="Track map"></nav>
+  <main class="main"><div class="page" id="view"></div></main>
+</div>
+<div class="toasts" id="toasts"></div>
+<script src="diagrams.js"></script>
+<script src="content/w1.js"></script>
+<script src="content/w2.js"></script>
+<script src="content/w3.js"></script>
+<script src="content/w4.js"></script>
+<script src="content/w5.js"></script>
+<script src="content/w6.js"></script>
+<script src="content/w7.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
