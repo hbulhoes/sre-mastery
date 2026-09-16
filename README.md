@@ -75,6 +75,16 @@ node tools/import.js --locale de --domain w2
 
 The importer regenerates the locale's JavaScript from the English object with only strings substituted, so answer indices, question types, health deltas and node IDs cannot drift. Update `worlds` in `i18n/manifest.js` when a new world is ready, and re-run the checks.
 
+## Deploying
+
+The site is hosted as static files in a private S3 bucket behind CloudFront, on a subdomain, with an ACM certificate validated through Route 53. One CloudFormation stack defines all of it.
+
+```bash
+node tools/deploy.js
+```
+
+That gates on the three checks below, refuses to publish if any fails, then syncs and invalidates. See [infra/README.md](infra/README.md) for the one-time stack creation, the caching design, the Content Security Policy and rollback.
+
 ## Checks
 
 ```bash
@@ -94,7 +104,8 @@ node tools/check-content.js && node tools/check-locales.js && node tools/check-s
 | `app.js` | Engine: routing, progress, XP and badges, markdown renderer, question and boss renderers, `t()` and locale-aware number handling |
 | `diagrams.js` | 19 inline SVG diagrams: geometry only, text via `{{placeholders}}` |
 | `content/<loc>/w1.js` … `w7.js` | One file per world: lessons, exercises and the boss scenario |
-| `tools/` | Extraction, import and the three validators |
+| `tools/` | Extraction, import, the three validators and the deploy script |
+| `infra/site.yaml` | CloudFormation stack: S3, CloudFront, ACM, Route 53, alarm |
 
 ## Authoring new content
 

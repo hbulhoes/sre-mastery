@@ -1,0 +1,285 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >-
+  SRE Track static site: private S3 bucket behind CloudFront with a custom
+  subdomain, an ACM certificate validated through Route 53, and a 5xx alarm.
+  Must be deployed to us-east-1: CloudFront can only use a certificate from
+  that region, and CloudFormation cannot create one cross-region.
+
+Parameters:
+  DomainName:
+    Type: String
+    Description: >-
+      Fully qualified subdomain to serve the site from, for example
+      sre.example.com. Must sit inside the hosted zone given below.
+    AllowedPattern: '^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$'
+    ConstraintDescription: A lowercase fully qualified domain name, e.g. sre.example.com
+
+  HostedZoneId:
+    Type: AWS::Route53::HostedZone::Id
+    Description: >-
+      Hosted zone of the PARENT domain (example.com), not the subdomain.
+      CloudFormation writes both the certificate validation record and the
+      alias records into it.
+
+  PriceClass:
+    Type: String
+    Default: PriceClass_All
+    AllowedValues: [PriceClass_100, PriceClass_200, PriceClass_All]
+    Description: >-
+      PriceClass_100 is North America and Europe only. Only PriceClass_All
+      includes South America and Oceania. The traffic here sits inside the
+      CloudFront free tier either way, so the choice is about latency.
+
+  AlarmEmail:
+    Type: String
+    Default: ''
+    Description: >-
+      Optional. An address to notify when the 5xx rate alarm fires. Leave
+      blank to create the alarm without any notification target.
+
+Conditions:
+  HasAlarmEmail: !Not [!Equals [!Ref AlarmEmail, '']]
+
+Resources:
+
+  # ---------------------------------------------------------------- storage --
+  # Private throughout. The REST endpoint is used, never the S3 website
+  # endpoint, so there is no path where the bucket serves the public directly.
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      VersioningConfiguration:
+        Status: Enabled
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireOldVersions
+            Status: Enabled
+            NoncurrentVersionExpirationInDays: 30
+          - Id: AbortIncompleteUploads
+            Status: Enabled
+            AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 7
+      Tags:
+        - Key: Project
+          Value: sre-track
+
+  # Grants read to this distribution only. The SourceArn condition is what
+  # stops any other distribution in any account from reading the bucket.
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: AllowCloudFrontRead
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub '${SiteBucket.Arn}/*'
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub 'arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${Distribution}'
+
+  # ------------------------------------------------------------ certificate --
+  # Supplying HostedZoneId lets CloudFormation write the validation record
+  # itself and wait. Without it the stack sits in CREATE_IN_PROGRESS until it
+  # times out, because nothing ever proves domain ownership.
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Ref DomainName
+      ValidationMethod: DNS
+      DomainValidationOptions:
+        - DomainName: !Ref DomainName
+          HostedZoneId: !Ref HostedZoneId
+      Tags:
+        - Key: Project
+          Value: sre-track
+
+  # ------------------------------------------------------------ CloudFront ---
+  OriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub '${AWS::StackName}-oac'
+        Description: Signs CloudFront requests to the private site bucket
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  # The CSP is derived from what the app actually does, not from a template.
+  # There are no inline <script> blocks or on* attributes, so script-src can be
+  # strict. app.js does write inline style attributes (the XP bar width, the
+  # boss health meter), so style-src must keep 'unsafe-inline' or those bars
+  # silently render at zero width.
+  ResponseHeadersPolicy:
+    Type: AWS::CloudFront::ResponseHeadersPolicy
+    Properties:
+      ResponseHeadersPolicyConfig:
+        Name: !Sub '${AWS::StackName}-security-headers'
+        Comment: Security headers for the SRE Track static site
+        SecurityHeadersConfig:
+          StrictTransportSecurity:
+            AccessControlMaxAgeSec: 31536000
+            IncludeSubdomains: true
+            Preload: false
+            Override: true
+          ContentTypeOptions:
+            Override: true
+          FrameOptions:
+            FrameOption: DENY
+            Override: true
+          ReferrerPolicy:
+            ReferrerPolicy: strict-origin-when-cross-origin
+            Override: true
+          ContentSecurityPolicy:
+            Override: true
+            ContentSecurityPolicy: >-
+              default-src 'self';
+              script-src 'self';
+              style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+              font-src https://fonts.gstatic.com;
+              img-src 'self';
+              connect-src 'none';
+              frame-ancestors 'none';
+              base-uri 'none';
+              form-action 'none';
+              object-src 'none'
+
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: !Sub '${AWS::StackName} — SRE Track'
+        Aliases:
+          - !Ref DomainName
+        DefaultRootObject: index.html
+        HttpVersion: http2and3
+        IPV6Enabled: true
+        PriceClass: !Ref PriceClass
+        ViewerCertificate:
+          AcmCertificateArn: !Ref Certificate
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2021
+        Origins:
+          - Id: SiteBucketOrigin
+            DomainName: !GetAtt SiteBucket.RegionalDomainName
+            OriginAccessControlId: !GetAtt OriginAccessControl.Id
+            # Required even with OAC; an empty identity means "use OAC".
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+        DefaultCacheBehavior:
+          TargetOriginId: SiteBucketOrigin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods: [GET, HEAD]
+          CachedMethods: [GET, HEAD]
+          # Every asset is text, so compression is the single biggest win:
+          # roughly 528 KB becomes about 120 KB on the wire.
+          Compress: true
+          # Managed-CachingOptimized. It honours the Cache-Control that the
+          # deploy script sets per object, which is what drives the split
+          # between a 5 minute browser TTL and a 1 day edge TTL.
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+          ResponseHeadersPolicyId: !Ref ResponseHeadersPolicy
+        # Deliberately no CustomErrorResponses. The usual static-site trick of
+        # mapping 403/404 to /index.html with a 200 is wrong here: the app has
+        # no client-side routing to recover, so that would turn a missing
+        # content file into a silently served HTML page instead of a 404.
+      Tags:
+        - Key: Project
+          Value: sre-track
+
+  # ------------------------------------------------------------------- DNS ---
+  DnsRecords:
+    Type: AWS::Route53::RecordSetGroup
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      RecordSets:
+        - Name: !Ref DomainName
+          Type: A
+          AliasTarget:
+            DNSName: !GetAtt Distribution.DomainName
+            # Fixed, global CloudFront zone id. Not the site's own zone.
+            HostedZoneId: Z2FDTNDATAQYW2
+            EvaluateTargetHealth: false
+        - Name: !Ref DomainName
+          Type: AAAA
+          AliasTarget:
+            DNSName: !GetAtt Distribution.DomainName
+            HostedZoneId: Z2FDTNDATAQYW2
+            EvaluateTargetHealth: false
+
+  # ------------------------------------------------------------ monitoring ---
+  AlarmTopic:
+    Type: AWS::SNS::Topic
+    Condition: HasAlarmEmail
+    Properties:
+      DisplayName: SRE Track alarms
+      Subscription:
+        - Protocol: email
+          Endpoint: !Ref AlarmEmail
+
+  FiveXxAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub '${AWS::StackName}-5xx-rate'
+      AlarmDescription: >-
+        CloudFront is returning server errors for the SRE Track site. Most
+        likely causes are a broken bucket policy or objects deleted from the
+        origin. Check the distribution's origin and the bucket policy.
+      Namespace: AWS/CloudFront
+      MetricName: 5xxErrorRate
+      Dimensions:
+        - Name: DistributionId
+          Value: !Ref Distribution
+        - Name: Region
+          Value: Global
+      Statistic: Average
+      Period: 300
+      EvaluationPeriods: 2
+      DatapointsToAlarm: 2
+      Threshold: 1
+      ComparisonOperator: GreaterThanThreshold
+      # A site this quiet reports no datapoints for long stretches. Missing
+      # data is not an outage, so it must not page.
+      TreatMissingData: notBreaching
+      AlarmActions: !If [HasAlarmEmail, [!Ref AlarmTopic], !Ref 'AWS::NoValue']
+      OKActions: !If [HasAlarmEmail, [!Ref AlarmTopic], !Ref 'AWS::NoValue']
+
+Outputs:
+  BucketName:
+    Description: Bucket the deploy script syncs into
+    Value: !Ref SiteBucket
+    Export:
+      Name: !Sub '${AWS::StackName}-BucketName'
+
+  DistributionId:
+    Description: Distribution the deploy script invalidates
+    Value: !Ref Distribution
+    Export:
+      Name: !Sub '${AWS::StackName}-DistributionId'
+
+  DistributionDomainName:
+    Description: CloudFront hostname, useful for testing before DNS propagates
+    Value: !GetAtt Distribution.DomainName
+
+  SiteUrl:
+    Description: Public URL of the site
+    Value: !Sub 'https://${DomainName}/'
