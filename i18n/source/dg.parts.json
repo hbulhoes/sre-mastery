@@ -1,0 +1,126 @@
+{
+  "sre-vs-ops.cap": [
+    "SRE"
+  ],
+  "sre-vs-ops.sre": [
+    "SRE"
+  ],
+  "nines.on-call-human": [
+    "on-call"
+  ],
+  "sli-slo-sla.cap": [
+    "SLI",
+    "SLO",
+    "SLA",
+    "SLO",
+    "SLA"
+  ],
+  "sli-slo-sla.2xx-3xx-under-300": [
+    "2xx",
+    "3xx"
+  ],
+  "sli-slo-sla.sli": [
+    "SLI"
+  ],
+  "sli-slo-sla.slo": [
+    "SLO"
+  ],
+  "sli-slo-sla.sla": [
+    "SLA"
+  ],
+  "error-budget.cap": [
+    "error budget",
+    "burn rate"
+  ],
+  "error-budget.burn-rate-160": [
+    "burn rate"
+  ],
+  "error-budget.burn-rate-1-0": [
+    "burn rate"
+  ],
+  "golden-signals.cap": [
+    "golden signals",
+    "CloudWatch"
+  ],
+  "golden-signals.demand-rps-sessions-iops": [
+    "RPS"
+  ],
+  "golden-signals.targetresponsetime-p99": [
+    "p99"
+  ],
+  "golden-signals.time-to-serve-p50": [
+    "p50",
+    "p95",
+    "p99"
+  ],
+  "burn-rate.burn-rate": [
+    "burn rate"
+  ],
+  "automation-ladder.external-generic-tooling-ssm": [
+    "Ansible",
+    "Terraform"
+  ],
+  "canary.cap": [
+    "SLI",
+    "canary"
+  ],
+  "canary.bake-time-sli-compare": [
+    "SLI"
+  ],
+  "troubleshooting-loop.cap": [
+    "postmortem",
+    "playbook"
+  ],
+  "lb-tiers.cap": [
+    "DNS"
+  ],
+  "lb-tiers.subsetting-weighted-round-robin": [
+    "lame duck"
+  ],
+  "lb-tiers.nlb-flow-hash-alb": [
+    "NLB",
+    "ALB"
+  ],
+  "lb-tiers.route-53-latency-or": [
+    "Route 53",
+    "Global Accelerator"
+  ],
+  "cascade.shed-load-retry-budgets": [
+    "retry budgets"
+  ],
+  "cascade.cpu-memory-threads": [
+    "CPU"
+  ],
+  "quorum.cap": [
+    "quorum"
+  ],
+  "quorum.quorum-b-r3-r4": [
+    "quorum"
+  ],
+  "quorum.quorum-a-r1-r2": [
+    "quorum"
+  ],
+  "oncall-balance.cap": [
+    "on-call",
+    "on-call",
+    "postmortem"
+  ],
+  "oncall-balance.25-on-call": [
+    "on-call"
+  ],
+  "test-pyramid.canary": [
+    "canary"
+  ],
+  "static-stability.cap": [
+    "data plane",
+    "control plane",
+    "Availability Zone",
+    "control plane"
+  ],
+  "static-stability.serves-with-what-exists": [
+    "DNS"
+  ],
+  "static-stability.creates-and-changes-things": [
+    "IAM"
+  ]
+}

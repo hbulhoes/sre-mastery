@@ -44,21 +44,65 @@ Progress, XP, ranks and badges are stored in `localStorage` under `sre-track-pro
 
 `mcq` single choice, `tf` true/false, `multi` multiple select (exact match required), `num` numeric with a tolerance, and `order` sequencing. The exam excludes `order` questions.
 
+## Languages
+
+The interface and diagrams ship in English, German, Brazilian Portuguese, Spanish and French. World 1 is additionally translated into German. Any world a language has not translated falls back to English and is marked with an `EN` chip, so the track is always complete and playable.
+
+Pick a language from the header. The choice is remembered per browser, and **progress survives a language change**: XP, ranks, badges and unlocked nodes are keyed by locale-independent node IDs.
+
+SRE and AWS vocabulary deliberately stays in English (SLI, SLO, error budget, toil, burn rate, CloudWatch, and so on) while the surrounding prose is translated, which is how most non-English engineering teams actually speak. `tools/glossary.json` is the enforced list.
+
+| File | Purpose |
+|---|---|
+| `i18n/manifest.js` | Which locales exist, their endonyms, and which worlds each has translated |
+| `i18n/boot.js` | Resolves the locale, then loads catalogs, content and the engine in order |
+| `i18n/ui.<loc>.js` | UI string catalog, with plural forms selected via `Intl.PluralRules` |
+| `i18n/dg.<loc>.js` | Diagram label catalog, keyed to `{{placeholders}}` in `diagrams.js` |
+| `i18n/source/` | Extracted English source for translators (generated) |
+| `i18n/target/<loc>/` | Translated JSON, the only files a translator edits |
+
+### Adding or extending a language
+
+```bash
+node tools/extract.js
+```
+
+Copy the JSON you need from `i18n/source/` into `i18n/target/<locale>/`, translate the **values** only, and leave every `%N%` marker intact. Those markers mask code spans, AWS names and glossary terms so machine translation cannot mangle them. Then:
+
+```bash
+node tools/import.js --locale de --domain w2
+```
+
+The importer regenerates the locale's JavaScript from the English object with only strings substituted, so answer indices, question types, health deltas and node IDs cannot drift. Update `worlds` in `i18n/manifest.js` when a new world is ready, and re-run the checks.
+
+## Checks
+
+```bash
+node tools/check-content.js && node tools/check-locales.js && node tools/check-svg-fit.js
+```
+
+- **`check-content.js`** validates every locale's track: 43 nodes, 161 questions, 19 diagrams, and that each boss is winnable on best play and losable on worst.
+- **`check-locales.js`** enforces structural parity with English. This is what protects quiz correctness: a changed answer index, choice count, question type, boss health delta or reordered `order` question fails the build.
+- **`check-svg-fit.js`** measures every diagram label against its `viewBox`. SVG text does not wrap and overflow is clipped *silently*, so this is the check most likely to fail on a new language. German is the worst case; it already caught two French labels during translation.
+
 ## Files
 
 | File | Purpose |
 |---|---|
-| `index.html` | Shell: header, sidebar, view container, script tags |
+| `index.html` | Shell: header, sidebar, view container, loader |
 | `styles.css` | All styling, including the light and dark palettes |
-| `app.js` | Engine: routing, progress, XP and badges, markdown renderer, question and boss renderers |
-| `diagrams.js` | 19 inline SVG technical diagrams, themed via CSS custom properties |
-| `content/w1.js` … `w7.js` | One file per world: lessons, exercises and the boss scenario |
+| `app.js` | Engine: routing, progress, XP and badges, markdown renderer, question and boss renderers, `t()` and locale-aware number handling |
+| `diagrams.js` | 19 inline SVG diagrams: geometry only, text via `{{placeholders}}` |
+| `content/<loc>/w1.js` … `w7.js` | One file per world: lessons, exercises and the boss scenario |
+| `tools/` | Extraction, import and the three validators |
 
 ## Authoring new content
 
-A world is a plain object pushed onto `window.SRE_WORLDS`. Lesson bodies use a small markdown subset: `##` and `###` headings, lists, tables, fenced code, `> ` callouts (`> [aws]` and `> [warn]` for variants), `**bold**`, `*italic*`, `` `code` ``, and `[[diagram:key]]` on its own line to embed a diagram.
+Author new content in English under `content/en/`. A world is a plain object pushed onto `window.SRE_WORLDS`. Lesson bodies use a small markdown subset: `##` and `###` headings, lists, tables, fenced code, `> ` callouts (`> [aws]` and `> [warn]` for variants), `**bold**`, `*italic*`, `` `code` ``, `<<code>>` as a shorthand, and `[[diagram:key]]` on its own line to embed a diagram.
 
-Diagrams live in `diagrams.js` as inline SVG. Colours must come from the `dg-*` CSS classes rather than literal hex values so both themes work. Keep labels short: text does not wrap in SVG, and anything past the `viewBox` width is silently clipped. Long explanation belongs in the diagram's `caption`, which renders as a `figcaption` and wraps normally.
+Diagram geometry lives in `diagrams.js`; the words live in `i18n/dg.<loc>.js` behind `{{key}}` placeholders. Colours must come from the `dg-*` CSS classes rather than literal hex values so both themes work. Keep labels short: text does not wrap in SVG, and anything past the `viewBox` width is silently clipped. Long explanation belongs in the diagram's `caption`, which renders as a `figcaption` and wraps normally.
+
+New user-facing strings in `app.js` go through `t('some.key')` and must be added to `i18n/ui.en.js`. Never concatenate translated fragments; use a single key with `{placeholders}`.
 
 ## Sources
 

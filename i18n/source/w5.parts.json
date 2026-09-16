@@ -1,0 +1,461 @@
+{
+  "w5.subtitle": [
+    "cascading failures",
+    "consensus"
+  ],
+  "w5.intro": [
+    "SRE",
+    "consensus",
+    "SRE",
+    "cascading failure"
+  ],
+  "w5.l1.title": [
+    "DNS"
+  ],
+  "w5.l1.body": [
+    "[[diagram:lb-tiers]]",
+    "DNS",
+    "TTLs",
+    "DNS",
+    "DNS",
+    "lame duck",
+    "CPU",
+    "AWS",
+    "Route 53",
+    "AWS",
+    "Global Accelerator",
+    "DNS",
+    "App Mesh",
+    "ECS",
+    "Cloud Map",
+    "ALB"
+  ],
+  "w5.l1.source": [
+    "SRE"
+  ],
+  "w5.l1.q0.q": [
+    "DNS"
+  ],
+  "w5.l1.q0.explain": [
+    "DNS"
+  ],
+  "w5.l1.q0.c1": [
+    "TTLs"
+  ],
+  "w5.l1.q0.c2": [
+    "DNS"
+  ],
+  "w5.l1.q0.c3": [
+    "DNS",
+    "VPC"
+  ],
+  "w5.l1.q1.q": [
+    "lame duck"
+  ],
+  "w5.l1.q1.explain": [
+    "ALB"
+  ],
+  "w5.l1.q3.q": [
+    "ALB"
+  ],
+  "w5.l1.q3.c0": [
+    "ALB"
+  ],
+  "w5.l1.q3.c1": [
+    "ALB"
+  ],
+  "w5.l1.q3.c3": [
+    "ALB"
+  ],
+  "w5.l2.body": [
+    "QPS",
+    "load shedding",
+    "CPU",
+    "retry budget",
+    "retry budget",
+    "AWS",
+    "API Gateway",
+    "ECS",
+    "CPU",
+    "Lambda",
+    "AWS",
+    "retry budget",
+    "ALB",
+    "CPU"
+  ],
+  "w5.l2.source": [
+    "SRE"
+  ],
+  "w5.l2.q1.q": [
+    "QPS"
+  ],
+  "w5.l2.q1.c0": [
+    "QPS"
+  ],
+  "w5.l2.q1.c1": [
+    "QPS"
+  ],
+  "w5.l2.q1.c2": [
+    "CloudWatch",
+    "QPS"
+  ],
+  "w5.l2.q4.q": [
+    "AWS"
+  ],
+  "w5.l2.q4.explain": [
+    "retry budget"
+  ],
+  "w5.l3.title": [
+    "cascading failures"
+  ],
+  "w5.l3.body": [
+    "<<slow_start>>",
+    "<<minimumHealthyPercent>>",
+    "[[diagram:cascade]]",
+    "cascading failure",
+    "CPU",
+    "retry budgets",
+    "deadline propagation",
+    "N+2",
+    "CPU",
+    "AWS",
+    "ALB",
+    "ALB",
+    "ElastiCache",
+    "ECS",
+    "AZ",
+    "Auto Scaling",
+    "WAF",
+    "API Gateway",
+    "retry budgets"
+  ],
+  "w5.l3.source": [
+    "SRE"
+  ],
+  "w5.l3.q0.explain": [
+    "N+1"
+  ],
+  "w5.l3.q0.c2": [
+    "DNS"
+  ],
+  "w5.l3.q1.q": [
+    "deadline propagation"
+  ],
+  "w5.l3.q1.c3": [
+    "DNS"
+  ],
+  "w5.l3.q2.q": [
+    "cascading failure"
+  ],
+  "w5.l3.q4.q": [
+    "ALB"
+  ],
+  "w5.l4.title": [
+    "consensus"
+  ],
+  "w5.l4.summary": [
+    "consensus"
+  ],
+  "w5.l4.body": [
+    "[[diagram:quorum]]",
+    "consensus",
+    "consensus",
+    "consensus",
+    "Paxos",
+    "Raft",
+    "quorum",
+    "quorum",
+    "consensus",
+    "Chubby",
+    "ZooKeeper",
+    "etcd",
+    "consensus",
+    "consensus",
+    "Raft",
+    "quorum",
+    "consensus",
+    "consensus",
+    "quorum",
+    "quorum",
+    "AWS",
+    "consensus",
+    "DynamoDB",
+    "Aurora",
+    "Amazon",
+    "MSK",
+    "Kafka",
+    "ZooKeeper",
+    "etcd",
+    "Kubernetes",
+    "Amazon",
+    "Keyspaces",
+    "AZs",
+    "AZs",
+    "etcd",
+    "AZ",
+    "DynamoDB",
+    "TTL",
+    "consensus"
+  ],
+  "w5.l4.source": [
+    "SRE"
+  ],
+  "w5.l4.q0.q": [
+    "consensus"
+  ],
+  "w5.l4.q2.c1": [
+    "quorum"
+  ],
+  "w5.l4.q3.q": [
+    "consensus"
+  ],
+  "w5.l4.q4.q": [
+    "AWS",
+    "consensus"
+  ],
+  "w5.l4.q4.explain": [
+    "TTL"
+  ],
+  "w5.l4.q4.c1": [
+    "DynamoDB",
+    "TTL"
+  ],
+  "w5.l4.q4.c3": [
+    "S3"
+  ],
+  "w5.l5.body": [
+    "<<IteratorAgeMilliseconds>>",
+    "consensus",
+    "Paxos",
+    "Google",
+    "Google",
+    "Workflow",
+    "consensus",
+    "SLOs",
+    "burn rate",
+    "AWS",
+    "EventBridge",
+    "Lambda",
+    "ECS",
+    "Step Functions",
+    "Step Functions",
+    "Kinesis",
+    "MSK",
+    "Kinesis",
+    "AWS",
+    "Glue",
+    "EMR",
+    "Kinesis",
+    "MSK",
+    "SLI"
+  ],
+  "w5.l5.source": [
+    "SRE"
+  ],
+  "w5.l5.q2.q": [
+    "SLIs"
+  ],
+  "w5.l5.q2.c3": [
+    "CPU"
+  ],
+  "w5.l6.body": [
+    "[[diagram:data-defense]]",
+    "AZs",
+    "Google",
+    "Google",
+    "Gmail",
+    "SLO",
+    "AWS",
+    "S3",
+    "DynamoDB",
+    "TTL",
+    "AWS",
+    "Backup",
+    "RDS",
+    "Aurora",
+    "DynamoDB",
+    "S3",
+    "AWS",
+    "Backup",
+    "Aurora",
+    "Lambda",
+    "Glue",
+    "S3",
+    "Macie",
+    "SLI"
+  ],
+  "w5.l6.source": [
+    "SRE"
+  ],
+  "w5.l6.q4.q": [
+    "AWS"
+  ],
+  "w5.l6.q4.c0": [
+    "AWS",
+    "Backup"
+  ],
+  "w5.l6.q4.c1": [
+    "S3"
+  ],
+  "w5.l6.q4.c2": [
+    "CloudTrail"
+  ],
+  "w5.l7.title": [
+    "SRE"
+  ],
+  "w5.l7.summary": [
+    "SREs"
+  ],
+  "w5.l7.body": [
+    "Google",
+    "Auxon",
+    "QPS",
+    "N+2",
+    "N+2",
+    "N+1",
+    "N+2",
+    "SRE",
+    "SREs",
+    "Auxon",
+    "SREs",
+    "SRE",
+    "on-call",
+    "control plane",
+    "AWS",
+    "CloudWatch",
+    "Compute Optimizer",
+    "Cost Explorer",
+    "Savings Plans",
+    "N+1",
+    "AZs",
+    "AZ",
+    "Service Quotas",
+    "Service Quotas",
+    "CloudWatch",
+    "EC2",
+    "Auto Scaling",
+    "EC2"
+  ],
+  "w5.l7.source": [
+    "SRE"
+  ],
+  "w5.l7.q1.q": [
+    "AZ"
+  ],
+  "w5.l7.q1.c1": [
+    "control plane"
+  ],
+  "w5.l7.q1.c2": [
+    "AZ"
+  ],
+  "w5.l7.q2.q": [
+    "SREs"
+  ],
+  "w5.l7.q2.explain": [
+    "Auxon"
+  ],
+  "w5.l7.q2.c0": [
+    "SREs"
+  ],
+  "w5.l7.q2.c1": [
+    "SREs"
+  ],
+  "w5.l7.q3.q": [
+    "AWS"
+  ],
+  "w5.l7.q3.c2": [
+    "CloudFormation"
+  ],
+  "w5.l7.q3.c3": [
+    "DNS",
+    "TTL"
+  ],
+  "w5.boss.intro": [
+    "on-call",
+    "ALB",
+    "ECS",
+    "AZs",
+    "ElastiCache",
+    "Aurora",
+    "SLO",
+    "AZ",
+    "ElastiCache",
+    "AZ",
+    "CPU"
+  ],
+  "w5.boss.lose": [
+    "AZ"
+  ],
+  "w5.boss.s0.text": [
+    "p99",
+    "Aurora",
+    "ECS"
+  ],
+  "w5.boss.s0.c0.text": [
+    "WAF"
+  ],
+  "w5.boss.s0.c1.text": [
+    "ECS"
+  ],
+  "w5.boss.s0.c1.fb": [
+    "Aurora"
+  ],
+  "w5.boss.s1.text": [
+    "AZs",
+    "AZ",
+    "ECS"
+  ],
+  "w5.boss.s1.c0.text": [
+    "AZ",
+    "ALB"
+  ],
+  "w5.boss.s1.c0.fb": [
+    "AZ"
+  ],
+  "w5.boss.s1.c2.text": [
+    "ECS"
+  ],
+  "w5.boss.s2.text": [
+    "AZ"
+  ],
+  "w5.boss.s2.c0.text": [
+    "retry budget"
+  ],
+  "w5.boss.s3.text": [
+    "AZ",
+    "Aurora",
+    "AZ"
+  ],
+  "w5.boss.s3.c0.text": [
+    "ALB",
+    "Aurora",
+    "p99"
+  ],
+  "w5.boss.s3.c1.fb": [
+    "Aurora"
+  ],
+  "w5.boss.s3.c2.text": [
+    "AZ"
+  ],
+  "w5.boss.s3.c2.fb": [
+    "AZs",
+    "AZ"
+  ],
+  "w5.boss.s4.c0.text": [
+    "retry budgets",
+    "load shedding",
+    "deadline propagation"
+  ],
+  "w5.boss.s4.c0.fb": [
+    "AZ"
+  ],
+  "w5.boss.s4.c1.fb": [
+    "retry budgets"
+  ],
+  "w5.boss.s4.c2.text": [
+    "AZ"
+  ],
+  "w5.boss.s5.text": [
+    "retry budgets"
+  ]
+}

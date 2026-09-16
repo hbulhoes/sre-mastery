@@ -1,0 +1,336 @@
+{
+  "w2.intro": [
+    "golden signals",
+    "SLO",
+    "SRE"
+  ],
+  "w2.l1.summary": [
+    "golden signals"
+  ],
+  "w2.l1.body": [
+    "<<TargetResponseTime>>",
+    "<<RequestCount>>",
+    "<<HTTPCode_Target_5XX_Count>>",
+    "<<DatabaseConnections>>",
+    "<<ApproximateAgeOfOldestMessage>>",
+    "<<p99>>",
+    "<<Average>>",
+    "[[diagram:golden-signals]]",
+    "SLO",
+    "p99",
+    "golden signals",
+    "HTTP",
+    "RPS",
+    "p99",
+    "CPU",
+    "SLI",
+    "SLO",
+    "Bigtable",
+    "SRE",
+    "SLO",
+    "SLO",
+    "on-call",
+    "AWS",
+    "CloudWatch",
+    "CloudWatch",
+    "ALB",
+    "SQS",
+    "DynamoDB",
+    "CloudWatch",
+    "Synthetics",
+    "canaries",
+    "VPC",
+    "Route 53",
+    "golden signals",
+    "HTTP",
+    "ALB",
+    "ECS",
+    "CPU",
+    "RDS",
+    "SQS",
+    "CloudWatch"
+  ],
+  "w2.l1.source": [
+    "SRE"
+  ],
+  "w2.l1.q0.explain": [
+    "SLO",
+    "CPU"
+  ],
+  "w2.l1.q0.c3": [
+    "CPU"
+  ],
+  "w2.l1.q1.explain": [
+    "p95",
+    "p99"
+  ],
+  "w2.l1.q1.c2": [
+    "CloudWatch"
+  ],
+  "w2.l1.q2.q": [
+    "golden signals"
+  ],
+  "w2.l1.q2.explain": [
+    "golden signals"
+  ],
+  "w2.l1.q3.c3": [
+    "on-call"
+  ],
+  "w2.l1.q4.q": [
+    "AWS"
+  ],
+  "w2.l1.q4.c0": [
+    "ALB"
+  ],
+  "w2.l1.q4.c1": [
+    "SQS"
+  ],
+  "w2.l1.q4.c2": [
+    "Route 53"
+  ],
+  "w2.l1.q4.c3": [
+    "S3"
+  ],
+  "w2.l2.body": [
+    "<<OK>>",
+    "<<ALARM>>",
+    "<<INSUFFICIENT_DATA>>",
+    "<<TreatMissingData>>",
+    "<<DatapointsToAlarm>>",
+    "<<EvaluationPeriods>>",
+    "SLO",
+    "SLO",
+    "error budget",
+    "AWS",
+    "CloudWatch",
+    "SNS",
+    "SNS",
+    "playbook",
+    "playbook"
+  ],
+  "w2.l2.source": [
+    "SRE"
+  ],
+  "w2.l2.q2.q": [
+    "on-call"
+  ],
+  "w2.l2.q2.c0": [
+    "on-call"
+  ],
+  "w2.l2.q3.q": [
+    "CloudWatch",
+    "5xx"
+  ],
+  "w2.l2.q4.explain": [
+    "runbook"
+  ],
+  "w2.l3.title": [
+    "SLOs"
+  ],
+  "w2.l3.body": [
+    "<<burn = (errors / requests) / (1 − slo)>>",
+    "[[diagram:burn-rate]]",
+    "SLO",
+    "error budget",
+    "SLO",
+    "SLO",
+    "burn rate",
+    "SLO",
+    "burn rate",
+    "burn rate",
+    "burn rate",
+    "SLO",
+    "burn rate",
+    "burn rates",
+    "burn rate",
+    "burn rate",
+    "SLO",
+    "SLO",
+    "SLO",
+    "SLI",
+    "AWS",
+    "CloudWatch",
+    "Application Signals",
+    "SLO",
+    "SLO",
+    "SLO",
+    "error budget",
+    "burn rate",
+    "SLO"
+  ],
+  "w2.l3.source": [
+    "SRE"
+  ],
+  "w2.l3.q0.q": [
+    "SLO",
+    "burn rate",
+    "error budget"
+  ],
+  "w2.l3.q1.q": [
+    "SLO"
+  ],
+  "w2.l3.q2.c2": [
+    "CloudWatch"
+  ],
+  "w2.l3.q3.c0": [
+    "SLO"
+  ],
+  "w2.l3.q3.c1": [
+    "SLI"
+  ],
+  "w2.l4.summary": [
+    "AWS"
+  ],
+  "w2.l4.body": [
+    "Borgmon",
+    "Google",
+    "Borgmon",
+    "Prometheus",
+    "HTTP",
+    "SLIs",
+    "SLIs",
+    "golden signals",
+    "AZ",
+    "on-call",
+    "golden signals",
+    "AWS",
+    "CloudWatch",
+    "CloudWatch",
+    "AWS",
+    "X-Ray",
+    "OpenTelemetry",
+    "AWS",
+    "OpenTelemetry",
+    "ADOT",
+    "Amazon",
+    "Prometheus",
+    "Amazon",
+    "Grafana",
+    "Grafana",
+    "CloudWatch",
+    "Synthetics",
+    "Contributor Insights",
+    "CodeDeploy",
+    "EventBridge",
+    "CloudFormation",
+    "CDK",
+    "AZ"
+  ],
+  "w2.l4.source": [
+    "SRE"
+  ],
+  "w2.l4.q0.c0": [
+    "HTTP"
+  ],
+  "w2.l4.q2.c3": [
+    "CloudWatch"
+  ],
+  "w2.l4.q3.c0": [
+    "SLIs"
+  ],
+  "w2.l4.q4.q": [
+    "AWS"
+  ],
+  "w2.l4.q4.explain": [
+    "Contributor Insights"
+  ],
+  "w2.l4.q4.c0": [
+    "CloudWatch",
+    "Contributor Insights"
+  ],
+  "w2.l4.q4.c1": [
+    "AWS",
+    "Config"
+  ],
+  "w2.l4.q4.c2": [
+    "CloudWatch",
+    "Synthetics"
+  ],
+  "w2.l4.q4.c3": [
+    "Route 53"
+  ],
+  "w2.boss.intro": [
+    "ECS",
+    "SQS",
+    "DynamoDB",
+    "Aurora",
+    "on-call",
+    "SLO"
+  ],
+  "w2.boss.win": [
+    "SLO",
+    "playbook"
+  ],
+  "w2.boss.s0.text": [
+    "```\n14  ECS CPU > 80% (any task, 1 datapoint)\n 9  Aurora reporting replica lag > 30 s\n 7  SQS queue depth > 1000\n 5  Orders 5xx rate > 0.01% (1 minute)\n 3  Nightly batch job \"started late\"\n 3  Actual incidents (orders failing)\n```"
+  ],
+  "w2.boss.s0.c0.text": [
+    "SLO"
+  ],
+  "w2.boss.s0.c0.fb": [
+    "SLO"
+  ],
+  "w2.boss.s0.c2.text": [
+    "on-call"
+  ],
+  "w2.boss.s1.text": [
+    "ECS",
+    "CPU",
+    "CPU",
+    "CPU",
+    "SLO"
+  ],
+  "w2.boss.s1.c0.text": [
+    "CPU",
+    "CPU"
+  ],
+  "w2.boss.s1.c0.fb": [
+    "CPU"
+  ],
+  "w2.boss.s1.c2.text": [
+    "CPU"
+  ],
+  "w2.boss.s2.text": [
+    "5xx",
+    "SLO"
+  ],
+  "w2.boss.s3.text": [
+    "Aurora"
+  ],
+  "w2.boss.s3.c0.text": [
+    "SLI"
+  ],
+  "w2.boss.s3.c0.fb": [
+    "SLO"
+  ],
+  "w2.boss.s3.c1.fb": [
+    "on-call"
+  ],
+  "w2.boss.s4.text": [
+    "SQS",
+    "SLO"
+  ],
+  "w2.boss.s4.c0.text": [
+    "SLO",
+    "SLI"
+  ],
+  "w2.boss.s4.c0.fb": [
+    "SLI"
+  ],
+  "w2.boss.s5.text": [
+    "SLO",
+    "CPU"
+  ],
+  "w2.boss.s5.c0.text": [
+    "playbook"
+  ],
+  "w2.boss.s5.c0.fb": [
+    "playbooks"
+  ],
+  "w2.boss.s5.c1.fb": [
+    "playbooks"
+  ],
+  "w2.boss.s5.c2.fb": [
+    "SLO"
+  ]
+}

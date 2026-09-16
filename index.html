@@ -9,31 +9,25 @@
 </head>
 <body>
 <header class="topbar">
-  <button class="iconbtn" id="menuBtn" aria-label="Open track map">☰ Track</button>
-  <button class="brand" id="homeBtn" title="Track overview"><span class="mark">SRE</span>SRE Track<small>mastery course</small></button>
+  <button class="iconbtn" id="menuBtn" data-i18n-attr="aria-label:app.openTrackMapAria"><span aria-hidden="true">☰</span> <span class="lbl" data-i18n="app.trackBtn">Track</span></button>
+  <button class="brand" id="homeBtn" data-i18n-attr="title:app.overviewTitle"><span class="mark">SRE</span><span class="bname">SRE Track</span><small data-i18n="app.tagline">mastery course</small></button>
   <div class="stats">
-    <div class="stat hide-sm"><span class="v" id="stStreak">0</span><span class="k">streak</span></div>
-    <div class="stat hide-sm"><span class="v" id="stAcc">–</span><span class="k">accuracy</span></div>
+    <div class="stat hide-sm"><span class="v" id="stStreak">0</span><span class="k" data-i18n="app.streak">streak</span></div>
+    <div class="stat hide-sm"><span class="v" id="stAcc">–</span><span class="k" data-i18n="app.accuracy">accuracy</span></div>
     <div class="xpwrap">
       <div class="row"><b id="stRank">Pager Rookie</b><span id="stXp">0 XP</span></div>
       <div class="xpbar"><i id="xpFill"></i></div>
     </div>
-    <button class="iconbtn" id="profileBtn">Badges</button>
+    <select class="langsel" id="langSel" data-i18n-attr="aria-label:app.langLabel"></select>
+    <button class="iconbtn" id="profileBtn" data-i18n="app.badgesBtn">Badges</button>
   </div>
 </header>
 <div class="shell">
-  <nav class="sidebar" id="sidebar" aria-label="Track map"></nav>
+  <nav class="sidebar" id="sidebar" data-i18n-attr="aria-label:app.trackMapAria"></nav>
   <main class="main"><div class="page" id="view"></div></main>
 </div>
 <div class="toasts" id="toasts"></div>
-<script src="diagrams.js"></script>
-<script src="content/w1.js"></script>
-<script src="content/w2.js"></script>
-<script src="content/w3.js"></script>
-<script src="content/w4.js"></script>
-<script src="content/w5.js"></script>
-<script src="content/w6.js"></script>
-<script src="content/w7.js"></script>
-<script src="app.js"></script>
+<script src="i18n/manifest.js"></script>
+<script src="i18n/boot.js"></script>
 </body>
 </html>

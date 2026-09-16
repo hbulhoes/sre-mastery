@@ -1,0 +1,473 @@
+{
+  "w7.subtitle": [
+    "shuffle sharding",
+    "chaos engineering"
+  ],
+  "w7.badge": [
+    "SRE"
+  ],
+  "w7.intro": [
+    "SRE",
+    "Google",
+    "AWS",
+    "static stability",
+    "cell-based architecture",
+    "shuffle sharding",
+    "chaos engineering",
+    "AWS",
+    "Well-Architected",
+    "Amazon",
+    "DORA"
+  ],
+  "w7.l1.title": [
+    "control plane"
+  ],
+  "w7.l1.body": [
+    "[[diagram:static-stability]]",
+    "control plane",
+    "DNS",
+    "IAM",
+    "data plane",
+    "DNS",
+    "AWS",
+    "control plane",
+    "Availability Zones",
+    "Auto Scaling",
+    "AZ",
+    "EC2",
+    "control plane",
+    "IAM",
+    "TTL",
+    "DNS",
+    "AZ",
+    "static stability",
+    "error budget",
+    "AZ",
+    "Auto Scaling",
+    "AWS",
+    "Auto Scaling",
+    "AZs",
+    "ALB",
+    "AZ",
+    "Route 53",
+    "DNS",
+    "Aurora",
+    "DynamoDB",
+    "IAM",
+    "EC2",
+    "S3",
+    "S3"
+  ],
+  "w7.l1.source": [
+    "Amazon",
+    "Well-Architected"
+  ],
+  "w7.l1.q0.q": [
+    "static stability",
+    "Availability Zones"
+  ],
+  "w7.l1.q0.c1": [
+    "AZ",
+    "control plane"
+  ],
+  "w7.l1.q0.c3": [
+    "AZ"
+  ],
+  "w7.l1.q1.q": [
+    "AZs",
+    "AZ",
+    "AZ"
+  ],
+  "w7.l1.q1.explain": [
+    "AZs",
+    "AZ"
+  ],
+  "w7.l1.q1.hint": [
+    "AZs"
+  ],
+  "w7.l1.q2.q": [
+    "Auto Scaling",
+    "AZ"
+  ],
+  "w7.l1.q2.c0": [
+    "Auto Scaling"
+  ],
+  "w7.l1.q2.c1": [
+    "EC2",
+    "control plane",
+    "AZs"
+  ],
+  "w7.l1.q2.c2": [
+    "Auto Scaling",
+    "AZs"
+  ],
+  "w7.l1.q2.c3": [
+    "Auto Scaling"
+  ],
+  "w7.l1.q3.q": [
+    "static stability"
+  ],
+  "w7.l1.q3.explain": [
+    "TTL"
+  ],
+  "w7.l1.q3.c3": [
+    "Route 53"
+  ],
+  "w7.l2.title": [
+    "shuffle sharding"
+  ],
+  "w7.l2.body": [
+    "[[diagram:shuffle-sharding]]",
+    "blast radius",
+    "blast radius",
+    "canary",
+    "AWS",
+    "Route 53",
+    "ALB",
+    "Amazon",
+    "Route 53",
+    "shuffle sharding",
+    "AWS",
+    "Availability Zone",
+    "AWS",
+    "VPC",
+    "IAM",
+    "data plane",
+    "blast radius"
+  ],
+  "w7.l2.source": [
+    "Amazon",
+    "Well-Architected"
+  ],
+  "w7.l2.q0.q": [
+    "cell-based architecture"
+  ],
+  "w7.l2.q3.q": [
+    "cell-based architecture"
+  ],
+  "w7.l2.q3.c3": [
+    "canary"
+  ],
+  "w7.l2.q4.explain": [
+    "blast radius"
+  ],
+  "w7.l3.title": [
+    "game days"
+  ],
+  "w7.l3.body": [
+    "SLIs",
+    "AZ",
+    "p99",
+    "AZ",
+    "blast radius",
+    "blast radius",
+    "game day",
+    "playbook",
+    "on-call",
+    "AZ",
+    "AWS",
+    "AWS",
+    "Fault Injection Service",
+    "CPU",
+    "RDS",
+    "Aurora",
+    "Spot",
+    "AZ",
+    "AZ",
+    "CloudWatch",
+    "Resilience Hub",
+    "RTO",
+    "RPO"
+  ],
+  "w7.l3.source": [
+    "SRE",
+    "AWS"
+  ],
+  "w7.l3.q0.q": [
+    "chaos engineering"
+  ],
+  "w7.l3.q0.i0": [
+    "SLIs"
+  ],
+  "w7.l3.q0.i2": [
+    "blast radius"
+  ],
+  "w7.l3.q0.i4": [
+    "blast radius"
+  ],
+  "w7.l3.q2.c1": [
+    "blast radius"
+  ],
+  "w7.l3.q3.c1": [
+    "on-call",
+    "playbooks"
+  ],
+  "w7.l3.q3.c2": [
+    "postmortems"
+  ],
+  "w7.l3.q4.q": [
+    "AWS",
+    "Fault Injection Service"
+  ],
+  "w7.l3.q4.explain": [
+    "SLO"
+  ],
+  "w7.l3.q4.c1": [
+    "CloudWatch"
+  ],
+  "w7.l3.q4.c2": [
+    "IAM"
+  ],
+  "w7.l3.q4.c3": [
+    "Spot"
+  ],
+  "w7.l4.title": [
+    "RTO",
+    "RPO"
+  ],
+  "w7.l4.body": [
+    "RTO",
+    "RPO",
+    "SLO",
+    "RTO",
+    "RPO",
+    "RTO",
+    "RPO",
+    "Backup",
+    "warm standby",
+    "RPO",
+    "SLI",
+    "RPO",
+    "DynamoDB",
+    "DNS",
+    "TTLs",
+    "KMS",
+    "KMS",
+    "IAM",
+    "error budget",
+    "SLO",
+    "RTO",
+    "warm standby",
+    "AWS",
+    "Route 53",
+    "Global Accelerator",
+    "Aurora",
+    "RPO",
+    "RTO",
+    "DynamoDB",
+    "S3",
+    "RPO",
+    "AWS",
+    "Backup",
+    "KMS",
+    "AWS",
+    "Resilience Hub",
+    "RTO",
+    "RPO"
+  ],
+  "w7.l4.source": [
+    "Well-Architected",
+    "AWS"
+  ],
+  "w7.l4.q0.q": [
+    "RPO"
+  ],
+  "w7.l4.q0.explain": [
+    "RTO",
+    "RPO",
+    "RPO"
+  ],
+  "w7.l4.q1.explain": [
+    "warm standby"
+  ],
+  "w7.l4.q1.c0": [
+    "Backup"
+  ],
+  "w7.l4.q2.q": [
+    "SLO",
+    "RTO",
+    "error budget"
+  ],
+  "w7.l4.q2.explain": [
+    "RTO"
+  ],
+  "w7.l4.q3.explain": [
+    "AZ"
+  ],
+  "w7.l4.q3.c0": [
+    "KMS"
+  ],
+  "w7.l4.q3.c4": [
+    "Availability Zones"
+  ],
+  "w7.l4.q4.q": [
+    "warm standby"
+  ],
+  "w7.l4.q4.c3": [
+    "Route 53"
+  ],
+  "w7.l5.title": [
+    "SLOs",
+    "DORA"
+  ],
+  "w7.l5.body": [
+    "SRE",
+    "SLI",
+    "error budget",
+    "postmortem",
+    "DORA",
+    "error budget",
+    "SLI",
+    "SLO",
+    "on-call",
+    "error budget",
+    "static stability",
+    "retry budget",
+    "retry budgets",
+    "load shedding",
+    "canary",
+    "SLO",
+    "SLO",
+    "error budget",
+    "canary",
+    "load shedding",
+    "blast radius",
+    "postmortems",
+    "AWS",
+    "CloudWatch",
+    "Application Signals",
+    "SLO",
+    "burn rate",
+    "DevOps Guru",
+    "CodePipeline",
+    "CodeDeploy",
+    "DORA",
+    "Incident Manager",
+    "Cost Explorer",
+    "Well-Architected",
+    "postmortem"
+  ],
+  "w7.l5.source": [
+    "DORA",
+    "Well-Architected"
+  ],
+  "w7.l5.q0.q": [
+    "DORA"
+  ],
+  "w7.l5.q0.explain": [
+    "SRE",
+    "DORA"
+  ],
+  "w7.l5.q1.q": [
+    "DORA"
+  ],
+  "w7.l5.q1.explain": [
+    "error budget"
+  ],
+  "w7.l5.q2.c2": [
+    "DORA"
+  ],
+  "w7.l5.q3.c3": [
+    "SRE"
+  ],
+  "w7.boss.intro": [
+    "incident commander",
+    "warm standby",
+    "Aurora",
+    "DynamoDB",
+    "S3",
+    "Route 53",
+    "TTL",
+    "RTO",
+    "RPO",
+    "AWS",
+    "AWS"
+  ],
+  "w7.boss.win": [
+    "load shedding",
+    "RTO",
+    "RPO"
+  ],
+  "w7.boss.lose": [
+    "RPO",
+    "postmortem"
+  ],
+  "w7.boss.s0.c0.text": [
+    "AWS"
+  ],
+  "w7.boss.s0.c1.fb": [
+    "RPO"
+  ],
+  "w7.boss.s1.text": [
+    "AWS",
+    "Aurora"
+  ],
+  "w7.boss.s1.c0.text": [
+    "RPO",
+    "runbook"
+  ],
+  "w7.boss.s1.c0.fb": [
+    "RPO"
+  ],
+  "w7.boss.s1.c1.text": [
+    "AWS"
+  ],
+  "w7.boss.s1.c1.fb": [
+    "error budget"
+  ],
+  "w7.boss.s2.text": [
+    "runbook",
+    "Aurora",
+    "KMS"
+  ],
+  "w7.boss.s2.c0.text": [
+    "Aurora",
+    "AWS",
+    "RPO"
+  ],
+  "w7.boss.s2.c0.fb": [
+    "RPO",
+    "KMS",
+    "postmortem"
+  ],
+  "w7.boss.s2.c1.fb": [
+    "RTO",
+    "RPO"
+  ],
+  "w7.boss.s3.text": [
+    "Route 53",
+    "warm standby",
+    "Auto Scaling"
+  ],
+  "w7.boss.s3.c1.text": [
+    "Auto Scaling"
+  ],
+  "w7.boss.s4.text": [
+    "RTO",
+    "RPO"
+  ],
+  "w7.boss.s5.text": [
+    "AWS"
+  ],
+  "w7.boss.s5.c2.fb": [
+    "postmortem"
+  ],
+  "w7.boss.s6.text": [
+    "RTO",
+    "KMS"
+  ],
+  "w7.boss.s6.c0.text": [
+    "runbook"
+  ],
+  "w7.boss.s6.c0.fb": [
+    "KMS",
+    "postmortem"
+  ],
+  "w7.boss.s6.c1.text": [
+    "postmortem",
+    "KMS"
+  ],
+  "w7.boss.s6.c2.fb": [
+    "RTO"
+  ]
+}

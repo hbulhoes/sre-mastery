@@ -1,0 +1,522 @@
+{
+  "w1.subtitle": [
+    "SRE"
+  ],
+  "w1.intro": [
+    "Google",
+    "SRE",
+    "SLI",
+    "SLO",
+    "error budget",
+    "on-call",
+    "AWS",
+    "error budget"
+  ],
+  "w1.l1.title": [
+    "Site Reliability Engineering"
+  ],
+  "w1.l1.summary": [
+    "SRE",
+    "DevOps"
+  ],
+  "w1.l1.body": [
+    "[[diagram:sre-vs-ops]]",
+    "Site Reliability Engineering",
+    "Google",
+    "SREs",
+    "on-call",
+    "on-call",
+    "SREs",
+    "SRE",
+    "SLO",
+    "error budget",
+    "SRE",
+    "SRE",
+    "SRE",
+    "DevOps",
+    "DevOps",
+    "SRE",
+    "SLOs",
+    "error budgets",
+    "postmortems",
+    "SRE",
+    "DevOps",
+    "AWS",
+    "CloudFormation",
+    "CDK",
+    "Terraform",
+    "Lambda",
+    "runbook",
+    "SRE",
+    "SRE",
+    "SLOs",
+    "SREs",
+    "toil",
+    "SRE"
+  ],
+  "w1.l1.source": [
+    "SRE"
+  ],
+  "w1.l1.q0.q": [
+    "SRE",
+    "SRE"
+  ],
+  "w1.l1.q0.explain": [
+    "SREs",
+    "SRE"
+  ],
+  "w1.l1.q0.c0": [
+    "SREs"
+  ],
+  "w1.l1.q0.c1": [
+    "on-call"
+  ],
+  "w1.l1.q0.c3": [
+    "SLO"
+  ],
+  "w1.l1.q1.q": [
+    "SRE"
+  ],
+  "w1.l1.q1.explain": [
+    "SRE"
+  ],
+  "w1.l1.q1.c2": [
+    "SLOs",
+    "error budgets"
+  ],
+  "w1.l1.q1.c3": [
+    "SRE"
+  ],
+  "w1.l1.q2.q": [
+    "SRE",
+    "SRE",
+    "DevOps"
+  ],
+  "w1.l1.q2.explain": [
+    "SRE",
+    "DevOps",
+    "DevOps",
+    "SRE",
+    "SLOs",
+    "error budgets",
+    "postmortems"
+  ],
+  "w1.l1.q2.c1": [
+    "DevOps",
+    "SRE"
+  ],
+  "w1.l1.q2.c2": [
+    "SRE",
+    "DevOps"
+  ],
+  "w1.l1.q2.c3": [
+    "DevOps",
+    "SRE"
+  ],
+  "w1.l1.q3.q": [
+    "SRE"
+  ],
+  "w1.l1.q3.explain": [
+    "SRE"
+  ],
+  "w1.l2.body": [
+    "[[diagram:nines]]",
+    "SRE",
+    "SLIs",
+    "AWS",
+    "AWS",
+    "SLAs",
+    "Amazon",
+    "RDS",
+    "Amazon",
+    "EC2",
+    "S3",
+    "EC2",
+    "AWS",
+    "SLA",
+    "canary"
+  ],
+  "w1.l2.source": [
+    "SRE"
+  ],
+  "w1.l2.q0.q": [
+    "SLO"
+  ],
+  "w1.l2.q2.q": [
+    "SRE"
+  ],
+  "w1.l2.q2.explain": [
+    "SLO"
+  ],
+  "w1.l2.q2.c0": [
+    "AWS"
+  ],
+  "w1.l2.q2.c3": [
+    "SLOs"
+  ],
+  "w1.l2.q3.q": [
+    "SRE"
+  ],
+  "w1.l3.title": [
+    "SLIs",
+    "SLOs"
+  ],
+  "w1.l3.body": [
+    "<<RequestCount>>",
+    "<<HTTPCode_Target_5XX_Count>>",
+    "<<TargetResponseTime>>",
+    "<<1 − (5XX ÷ RequestCount)>>",
+    "<<Average>>",
+    "[[diagram:sli-slo-sla]]",
+    "[[diagram:slo-window]]",
+    "SLI",
+    "Service Level Indicator",
+    "SLO",
+    "Service Level Objective",
+    "SLI",
+    "SLA",
+    "Service Level Agreement",
+    "SLO",
+    "SREs",
+    "SLAs",
+    "SLO",
+    "SLA",
+    "SLIs",
+    "SLIs",
+    "4xx",
+    "SLO",
+    "SLI",
+    "p50",
+    "p99",
+    "SLO",
+    "SLO",
+    "SLI",
+    "HTTP",
+    "Google",
+    "SLIs",
+    "SLOs",
+    "SLOs",
+    "SLO",
+    "SLO",
+    "SLO",
+    "Google",
+    "Chubby",
+    "AWS",
+    "SLI",
+    "ALB",
+    "p99",
+    "SLI",
+    "CloudWatch",
+    "SLIs",
+    "CloudWatch",
+    "Contributor Insights",
+    "Application Signals",
+    "SLOs",
+    "SLI",
+    "SLO",
+    "SLO",
+    "CPU",
+    "SLO"
+  ],
+  "w1.l3.source": [
+    "SRE"
+  ],
+  "w1.l3.q0.q": [
+    "SLI"
+  ],
+  "w1.l3.q0.explain": [
+    "SLI",
+    "CPU"
+  ],
+  "w1.l3.q0.c2": [
+    "CPU"
+  ],
+  "w1.l3.q0.c3": [
+    "5xx"
+  ],
+  "w1.l3.q1.q": [
+    "SLIs",
+    "SLI"
+  ],
+  "w1.l3.q1.c0": [
+    "SLI"
+  ],
+  "w1.l3.q1.c1": [
+    "SLI"
+  ],
+  "w1.l3.q1.c3": [
+    "SLI"
+  ],
+  "w1.l3.q2.q": [
+    "SLO"
+  ],
+  "w1.l3.q2.explain": [
+    "SLI",
+    "SLO"
+  ],
+  "w1.l3.q2.c0": [
+    "SLI"
+  ],
+  "w1.l3.q2.c4": [
+    "on-call"
+  ],
+  "w1.l3.q3.q": [
+    "SRE",
+    "SLO"
+  ],
+  "w1.l3.q3.explain": [
+    "Google",
+    "Chubby",
+    "SLO"
+  ],
+  "w1.l3.q3.c0": [
+    "CloudWatch"
+  ],
+  "w1.l3.q3.c1": [
+    "SLO"
+  ],
+  "w1.l3.q3.c2": [
+    "SLA"
+  ],
+  "w1.l3.q4.q": [
+    "AWS"
+  ],
+  "w1.l3.q4.c0": [
+    "CPU",
+    "EC2"
+  ],
+  "w1.l3.q4.c3": [
+    "RDS"
+  ],
+  "w1.l4.title": [
+    "error budget"
+  ],
+  "w1.l4.summary": [
+    "SLO"
+  ],
+  "w1.l4.body": [
+    "<<error_budget_remaining>>",
+    "[[diagram:error-budget]]",
+    "SLO",
+    "error budget",
+    "error budget",
+    "SRE",
+    "SLO",
+    "SRE",
+    "error budget",
+    "error budget",
+    "SRE",
+    "SLI",
+    "SLO",
+    "postmortem",
+    "on-call",
+    "SLO",
+    "SLO",
+    "burn rate",
+    "SLO",
+    "burn rate",
+    "AWS",
+    "CloudWatch",
+    "Application Signals",
+    "SLOs",
+    "error budget",
+    "SLO",
+    "CodePipeline",
+    "Lambda"
+  ],
+  "w1.l4.source": [
+    "SRE"
+  ],
+  "w1.l4.q0.q": [
+    "SLO",
+    "error budget"
+  ],
+  "w1.l4.q1.q": [
+    "SLO",
+    "burn rate"
+  ],
+  "w1.l4.q2.q": [
+    "error budget",
+    "error budget"
+  ],
+  "w1.l4.q2.explain": [
+    "SLO"
+  ],
+  "w1.l4.q2.c1": [
+    "SLI",
+    "SLO"
+  ],
+  "w1.l4.q2.c2": [
+    "on-call"
+  ],
+  "w1.l4.q2.c3": [
+    "SLO"
+  ],
+  "w1.l4.q3.q": [
+    "error budget"
+  ],
+  "w1.l4.q3.c2": [
+    "postmortem"
+  ],
+  "w1.l4.q3.c3": [
+    "canary"
+  ],
+  "w1.l4.q4.q": [
+    "error budget"
+  ],
+  "w1.l4.q4.c1": [
+    "SRE"
+  ],
+  "w1.l5.summary": [
+    "toil"
+  ],
+  "w1.l5.body": [
+    "toil",
+    "toil",
+    "toil",
+    "Google",
+    "SRE",
+    "toil",
+    "toil",
+    "toil",
+    "toil",
+    "toil",
+    "toil",
+    "toil",
+    "toil",
+    "AWS",
+    "AWS",
+    "Auto Scaling",
+    "Systems Manager",
+    "runbooks",
+    "CloudWatch",
+    "EventBridge",
+    "Secrets Manager",
+    "Service Catalog",
+    "AWS",
+    "Config",
+    "on-call",
+    "EventBridge",
+    "toil"
+  ],
+  "w1.l5.source": [
+    "SRE"
+  ],
+  "w1.l5.q0.q": [
+    "toil",
+    "SRE"
+  ],
+  "w1.l5.q0.explain": [
+    "toil"
+  ],
+  "w1.l5.q0.c0": [
+    "EC2"
+  ],
+  "w1.l5.q1.q": [
+    "Google",
+    "SRE",
+    "toil"
+  ],
+  "w1.l5.q1.explain": [
+    "toil"
+  ],
+  "w1.l5.q2.explain": [
+    "toil"
+  ],
+  "w1.l5.q2.c0": [
+    "on-call"
+  ],
+  "w1.l5.q3.q": [
+    "toil"
+  ],
+  "w1.boss.intro": [
+    "SRE",
+    "AWS",
+    "ALB",
+    "ECS",
+    "Aurora",
+    "SLO",
+    "Aurora",
+    "SRE"
+  ],
+  "w1.boss.win": [
+    "SLO",
+    "SLO",
+    "error budget",
+    "SRE"
+  ],
+  "w1.boss.lose": [
+    "SLO",
+    "SRE"
+  ],
+  "w1.boss.s0.text": [
+    "SRE",
+    "burn rate"
+  ],
+  "w1.boss.s0.c0.fb": [
+    "postmortem"
+  ],
+  "w1.boss.s1.text": [
+    "SLO"
+  ],
+  "w1.boss.s1.c0.text": [
+    "SLO"
+  ],
+  "w1.boss.s1.c1.text": [
+    "ALB"
+  ],
+  "w1.boss.s1.c1.fb": [
+    "SLO",
+    "SLO",
+    "ALB"
+  ],
+  "w1.boss.s1.c2.text": [
+    "SLO"
+  ],
+  "w1.boss.s2.c0.text": [
+    "SLI",
+    "canary"
+  ],
+  "w1.boss.s2.c0.fb": [
+    "canary"
+  ],
+  "w1.boss.s3.text": [
+    "CloudWatch",
+    "p99",
+    "canary"
+  ],
+  "w1.boss.s3.c0.text": [
+    "canary",
+    "SLI",
+    "SLO",
+    "p99"
+  ],
+  "w1.boss.s3.c1.fb": [
+    "SLO",
+    "SLO"
+  ],
+  "w1.boss.s3.c2.fb": [
+    "canary"
+  ],
+  "w1.boss.s4.text": [
+    "Aurora"
+  ],
+  "w1.boss.s4.c0.fb": [
+    "SRE"
+  ],
+  "w1.boss.s4.c2.text": [
+    "canary"
+  ],
+  "w1.boss.s4.c2.fb": [
+    "canary"
+  ],
+  "w1.boss.s5.text": [
+    "postmortem"
+  ],
+  "w1.boss.s5.c0.text": [
+    "canary"
+  ],
+  "w1.boss.s5.c0.fb": [
+    "postmortem"
+  ]
+}

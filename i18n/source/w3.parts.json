@@ -1,0 +1,314 @@
+{
+  "w3.subtitle": [
+    "canarying"
+  ],
+  "w3.intro": [
+    "SRE",
+    "canary",
+    "SRE"
+  ],
+  "w3.l1.body": [
+    "[[diagram:automation-ladder]]",
+    "MTTR",
+    "Google",
+    "Prodtest",
+    "Borg",
+    "Google",
+    "Prodtest",
+    "canaries",
+    "AWS",
+    "Ansible",
+    "Terraform",
+    "EventBridge",
+    "Lambda",
+    "CloudWatch",
+    "Auto Scaling",
+    "AWS",
+    "Config",
+    "RDS",
+    "Aurora",
+    "S3",
+    "IAM",
+    "IAM"
+  ],
+  "w3.l1.source": [
+    "SRE"
+  ],
+  "w3.l1.q3.q": [
+    "AWS",
+    "CloudWatch",
+    "EventBridge"
+  ],
+  "w3.l2.body": [
+    "Google",
+    "toil",
+    "Google",
+    "Rapid",
+    "canaries",
+    "AWS",
+    "CodeBuild",
+    "EC2",
+    "Lambda",
+    "S3",
+    "CodePipeline",
+    "CodeDeploy",
+    "canary",
+    "ECS",
+    "Lambda",
+    "EC2",
+    "Signer",
+    "IAM",
+    "CloudFormation",
+    "Config"
+  ],
+  "w3.l2.source": [
+    "SRE"
+  ],
+  "w3.l2.q3.q": [
+    "AWS"
+  ],
+  "w3.l2.q3.c0": [
+    "CodeDeploy",
+    "CloudWatch"
+  ],
+  "w3.l2.q3.c3": [
+    "on-call"
+  ],
+  "w3.l3.body": [
+    "SRE",
+    "SREs",
+    "AWS",
+    "Lambda",
+    "IAM"
+  ],
+  "w3.l3.source": [
+    "SRE"
+  ],
+  "w3.l3.q0.explain": [
+    "SREs"
+  ],
+  "w3.l3.q0.c2": [
+    "SREs"
+  ],
+  "w3.l4.summary": [
+    "canary"
+  ],
+  "w3.l4.body": [
+    "<<Canary10Percent5Minutes>>",
+    "[[diagram:canary]]",
+    "canary",
+    "canary",
+    "blast radius",
+    "canarying",
+    "canary",
+    "canary",
+    "canary",
+    "error budget",
+    "AZ",
+    "SLIs",
+    "CPU",
+    "canary",
+    "canary",
+    "p99",
+    "canary",
+    "canary",
+    "canary",
+    "canary",
+    "canary",
+    "canary",
+    "canary",
+    "canarying",
+    "AWS",
+    "CodeDeploy",
+    "canary",
+    "ECS",
+    "Lambda",
+    "CloudWatch",
+    "ECS",
+    "ALB",
+    "Lambda",
+    "ECS",
+    "Lambda",
+    "CloudWatch",
+    "canary",
+    "SLIs",
+    "AZ",
+    "canary"
+  ],
+  "w3.l4.source": [
+    "SRE"
+  ],
+  "w3.l4.q0.q": [
+    "canary"
+  ],
+  "w3.l4.q0.c3": [
+    "CloudWatch"
+  ],
+  "w3.l4.q1.q": [
+    "canary"
+  ],
+  "w3.l4.q1.explain": [
+    "canary"
+  ],
+  "w3.l4.q1.c2": [
+    "canary"
+  ],
+  "w3.l4.q2.q": [
+    "canaries",
+    "canary"
+  ],
+  "w3.l4.q2.explain": [
+    "canaries"
+  ],
+  "w3.l4.q2.c0": [
+    "canary"
+  ],
+  "w3.l4.q2.c3": [
+    "canary"
+  ],
+  "w3.l4.q3.q": [
+    "canary"
+  ],
+  "w3.l4.q4.q": [
+    "AWS",
+    "ECS",
+    "ALB",
+    "canary"
+  ],
+  "w3.l5.summary": [
+    "Config"
+  ],
+  "w3.l5.body": [
+    "Config",
+    "Prodtest",
+    "canary",
+    "AWS",
+    "AWS",
+    "AppConfig",
+    "Lambda",
+    "CloudWatch",
+    "Parameter Store",
+    "Secrets Manager",
+    "CloudFormation",
+    "Lambda",
+    "canary",
+    "on-call"
+  ],
+  "w3.l5.source": [
+    "SRE"
+  ],
+  "w3.l5.q0.explain": [
+    "Config"
+  ],
+  "w3.l5.q3.q": [
+    "AWS"
+  ],
+  "w3.l5.q3.explain": [
+    "AppConfig",
+    "AWS",
+    "Config",
+    "Parameter Store"
+  ],
+  "w3.l5.q3.c0": [
+    "AWS",
+    "AppConfig"
+  ],
+  "w3.l5.q3.c1": [
+    "AWS",
+    "Config"
+  ],
+  "w3.l5.q3.c2": [
+    "AWS",
+    "Systems Manager",
+    "Parameter Store"
+  ],
+  "w3.l5.q3.c3": [
+    "Amazon",
+    "EventBridge"
+  ],
+  "w3.boss.intro": [
+    "on-call",
+    "ECS",
+    "ALB",
+    "SLO",
+    "AppConfig"
+  ],
+  "w3.boss.win": [
+    "error budget",
+    "canary"
+  ],
+  "w3.boss.lose": [
+    "SLO"
+  ],
+  "w3.boss.s0.text": [
+    "<<\"backend_timeout_ms\": 2000 → 400>>"
+  ],
+  "w3.boss.s0.c0.text": [
+    "canary"
+  ],
+  "w3.boss.s0.c0.fb": [
+    "p95"
+  ],
+  "w3.boss.s0.c1.fb": [
+    "Config"
+  ],
+  "w3.boss.s1.c0.text": [
+    "error budget",
+    "p99.5"
+  ],
+  "w3.boss.s1.c1.fb": [
+    "SLO"
+  ],
+  "w3.boss.s1.c2.fb": [
+    "SLO"
+  ],
+  "w3.boss.s2.text": [
+    "AppConfig"
+  ],
+  "w3.boss.s2.c0.text": [
+    "SLIs",
+    "p99",
+    "canary"
+  ],
+  "w3.boss.s2.c0.fb": [
+    "canary"
+  ],
+  "w3.boss.s2.c1.fb": [
+    "canary"
+  ],
+  "w3.boss.s3.text": [
+    "canary",
+    "p99",
+    "canary",
+    "canary"
+  ],
+  "w3.boss.s3.c1.fb": [
+    "canary"
+  ],
+  "w3.boss.s3.c2.text": [
+    "canary"
+  ],
+  "w3.boss.s4.text": [
+    "ALB",
+    "5xx",
+    "AZ",
+    "AZ"
+  ],
+  "w3.boss.s4.c0.fb": [
+    "canary",
+    "AZ"
+  ],
+  "w3.boss.s4.c1.fb": [
+    "AZ"
+  ],
+  "w3.boss.s5.text": [
+    "AZ",
+    "AppConfig"
+  ],
+  "w3.boss.s5.c2.text": [
+    "SRE"
+  ],
+  "w3.boss.s5.c2.fb": [
+    "toil"
+  ]
+}

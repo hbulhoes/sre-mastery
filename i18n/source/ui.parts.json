@@ -1,0 +1,143 @@
+{
+  "nav.clearedCount": [
+    "{done}",
+    "{total}"
+  ],
+  "nav.bossPrefix": [
+    "{title}"
+  ],
+  "nav.minutes": [
+    "{n}"
+  ],
+  "nav.continue": [
+    "{title}"
+  ],
+  "home.eyebrow": [
+    "{worlds}",
+    "{nodes}"
+  ],
+  "home.h1": [
+    "Site Reliability Engineering"
+  ],
+  "home.p1": [
+    "Google",
+    "SRE",
+    "XP"
+  ],
+  "home.p2": [
+    "AWS",
+    "AWS"
+  ],
+  "home.start": [
+    "{title}"
+  ],
+  "home.resume": [
+    "{title}"
+  ],
+  "home.tile1.p": [
+    "XP"
+  ],
+  "home.tile3.p": [
+    "SRE"
+  ],
+  "world.eyebrow": [
+    "{n}"
+  ],
+  "lesson.eyebrow": [
+    "{n}",
+    "{world}",
+    "{label}"
+  ],
+  "lesson.minRead": [
+    "{n}"
+  ],
+  "lesson.qCount#one": [
+    "{n}"
+  ],
+  "lesson.qCount#other": [
+    "{n}"
+  ],
+  "lesson.source": [
+    "{src}"
+  ],
+  "cp.intro#one": [
+    "{n}"
+  ],
+  "cp.intro#other": [
+    "{n}"
+  ],
+  "cp.progress": [
+    "{n}",
+    "{total}"
+  ],
+  "cp.xpRun": [
+    "XP"
+  ],
+  "cp.replayNote": [
+    "XP"
+  ],
+  "q.xpFirstTry": [
+    "{n}",
+    "XP"
+  ],
+  "q.selectExactly": [
+    "{n}"
+  ],
+  "q.expected": [
+    "{value}"
+  ],
+  "boss.eyebrow": [
+    "{n}",
+    "{world}"
+  ],
+  "boss.turn": [
+    "{n}",
+    "{total}"
+  ],
+  "boss.healthDelta": [
+    "{d}"
+  ],
+  "boss.xp": [
+    "XP"
+  ],
+  "exam.drawn#one": [
+    "{n}",
+    "{pool}"
+  ],
+  "exam.drawn#other": [
+    "{n}",
+    "{pool}"
+  ],
+  "exam.best": [
+    "{pct}"
+  ],
+  "exam.progress": [
+    "{n}",
+    "{total}",
+    "{right}"
+  ],
+  "exam.passBody": [
+    "XP"
+  ],
+  "profile.confirmReset": [
+    "XP"
+  ],
+  "toast.rankUp": [
+    "{rank}"
+  ],
+  "toast.badge": [
+    "{name}"
+  ],
+  "rank.principalSre": [
+    "SRE"
+  ],
+  "rank.sreMaster": [
+    "SRE"
+  ],
+  "badge.worldDesc": [
+    "{title}"
+  ],
+  "badge.master.name": [
+    "SRE"
+  ]
+}

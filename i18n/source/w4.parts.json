@@ -1,0 +1,249 @@
+{
+  "w4.subtitle": [
+    "postmortems"
+  ],
+  "w4.intro": [
+    "SRE",
+    "Google",
+    "postmortem",
+    "SRE"
+  ],
+  "w4.l1.body": [
+    "[[diagram:troubleshooting-loop]]",
+    "p99",
+    "golden signals",
+    "golden signals",
+    "AWS",
+    "CloudTrail",
+    "CloudFormation",
+    "CodeDeploy",
+    "AppConfig",
+    "AWS",
+    "X-Ray",
+    "OpenTelemetry",
+    "ALB"
+  ],
+  "w4.l1.source": [
+    "SRE"
+  ],
+  "w4.l1.q3.c0": [
+    "on-call"
+  ],
+  "w4.l1.q3.c2": [
+    "DNS"
+  ],
+  "w4.l1.q4.q": [
+    "AWS"
+  ],
+  "w4.l1.q4.explain": [
+    "CloudTrail"
+  ],
+  "w4.l1.q4.c0": [
+    "CloudWatch"
+  ],
+  "w4.l1.q4.c1": [
+    "AWS",
+    "CloudTrail"
+  ],
+  "w4.l1.q4.c2": [
+    "Route 53"
+  ],
+  "w4.l1.q4.c3": [
+    "S3"
+  ],
+  "w4.l2.summary": [
+    "Google"
+  ],
+  "w4.l2.body": [
+    "Google",
+    "blast radius",
+    "postmortem",
+    "game days",
+    "AWS",
+    "IAM",
+    "EventBridge",
+    "Auto Scaling",
+    "AWS",
+    "Organizations",
+    "AWS",
+    "Fault Injection Service",
+    "game day",
+    "SLIs"
+  ],
+  "w4.l2.source": [
+    "SRE"
+  ],
+  "w4.l2.q0.c2": [
+    "postmortem"
+  ],
+  "w4.l2.q3.c2": [
+    "AWS"
+  ],
+  "w4.l3.body": [
+    "[[diagram:ics]]",
+    "Google",
+    "postmortem",
+    "Google",
+    "AWS",
+    "AWS",
+    "Systems Manager",
+    "Incident Manager",
+    "on-call",
+    "runbook",
+    "CloudWatch",
+    "EventBridge",
+    "CloudTrail",
+    "AWS",
+    "AWS"
+  ],
+  "w4.l3.source": [
+    "SRE"
+  ],
+  "w4.l4.summary": [
+    "postmortems"
+  ],
+  "w4.l4.body": [
+    "postmortem",
+    "on-call",
+    "postmortem",
+    "postmortem",
+    "error budget",
+    "canary",
+    "canary",
+    "Google",
+    "postmortems",
+    "postmortems",
+    "postmortem",
+    "postmortems",
+    "postmortems",
+    "postmortem",
+    "AWS",
+    "AWS",
+    "CloudTrail",
+    "AWS",
+    "Well-Architected",
+    "error budget",
+    "Config",
+    "canary",
+    "canary",
+    "canary",
+    "Config"
+  ],
+  "w4.l4.source": [
+    "SRE"
+  ],
+  "w4.l4.q0.q": [
+    "postmortem"
+  ],
+  "w4.l4.q0.c2": [
+    "SLI",
+    "4xx"
+  ],
+  "w4.l4.q1.q": [
+    "postmortem"
+  ],
+  "w4.l4.q1.explain": [
+    "on-call"
+  ],
+  "w4.l4.q2.explain": [
+    "canary"
+  ],
+  "w4.l4.q3.c2": [
+    "AppConfig"
+  ],
+  "w4.l5.body": [
+    "<<cfn-lint>>",
+    "<<cfn-guard>>",
+    "[[diagram:test-pyramid]]",
+    "Google",
+    "Outalator",
+    "Prodtest",
+    "Terraform",
+    "CloudFormation",
+    "chaos engineering",
+    "AWS",
+    "CodeBuild",
+    "AWS",
+    "AWS",
+    "Config",
+    "AWS",
+    "AWS",
+    "Fault Injection Service",
+    "AZ",
+    "Incident Manager"
+  ],
+  "w4.l5.source": [
+    "SRE"
+  ],
+  "w4.l5.q0.c3": [
+    "on-call"
+  ],
+  "w4.l5.q1.explain": [
+    "AWS",
+    "Config"
+  ],
+  "w4.boss.intro": [
+    "on-call",
+    "ALB",
+    "ECS",
+    "Aurora"
+  ],
+  "w4.boss.win": [
+    "SLO",
+    "incident commander"
+  ],
+  "w4.boss.lose": [
+    "postmortem"
+  ],
+  "w4.boss.s0.text": [
+    "Aurora"
+  ],
+  "w4.boss.s0.c1.text": [
+    "Aurora"
+  ],
+  "w4.boss.s1.c0.text": [
+    "Route 53",
+    "runbook"
+  ],
+  "w4.boss.s3.text": [
+    "<<connection timeout to aurora-eu-writer>>",
+    "Aurora"
+  ],
+  "w4.boss.s3.c0.text": [
+    "Aurora",
+    "CloudWatch"
+  ],
+  "w4.boss.s3.c0.fb": [
+    "canary",
+    "postmortem"
+  ],
+  "w4.boss.s3.c2.text": [
+    "Aurora"
+  ],
+  "w4.boss.s4.text": [
+    "Route 53"
+  ],
+  "w4.boss.s4.c0.text": [
+    "SLIs",
+    "SLO"
+  ],
+  "w4.boss.s5.text": [
+    "SLIs",
+    "error budget",
+    "postmortem"
+  ],
+  "w4.boss.s5.c0.text": [
+    "postmortem",
+    "canary"
+  ],
+  "w4.boss.s5.c0.fb": [
+    "postmortem",
+    "error budget"
+  ],
+  "w4.boss.s5.c2.text": [
+    "postmortem"
+  ],
+  "w4.boss.s5.c2.fb": [
+    "postmortem"
+  ]
+}

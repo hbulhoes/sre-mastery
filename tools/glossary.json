@@ -1,0 +1,31 @@
+{
+  "_comment": "Terms that must survive translation verbatim. tools/extract.js masks each occurrence as %N% before machine translation and tools/import.js restores it, so an MT engine cannot rename a metric or turn 'toil' into housework. Longest match wins. Matching is case-sensitive and whole-word.",
+  "policy": "Per the project's terminology decision, SRE and AWS vocabulary stays in English while the surrounding prose is translated.",
+  "terms": [
+    "SRE", "SREs", "SLI", "SLIs", "SLO", "SLOs", "SLA", "SLAs", "DORA", "DevOps",
+    "Site Reliability Engineering", "Service Level Indicator", "Service Level Objective",
+    "Service Level Agreement", "Availability Zone", "Availability Zones", "AZ", "AZs",
+    "error budget", "error budgets", "burn rate", "burn rates",
+    "toil", "blast radius", "lame duck", "shuffle sharding", "static stability",
+    "canary", "canaries", "canarying", "postmortem", "postmortems",
+    "on-call", "runbook", "runbooks", "playbook", "playbooks",
+    "golden signals", "load shedding", "deadline propagation", "retry budget", "retry budgets",
+    "cascading failure", "cascading failures", "graceful degradation", "quorum", "consensus",
+    "chaos engineering", "game day", "game days", "incident commander", "production readiness review",
+    "cell-based architecture", "control plane", "data plane", "pilot light", "warm standby",
+    "RTO", "RTOs", "RPO", "RPOs", "MTTR", "QPS", "RPS", "p50", "p95", "p99", "p99.5",
+    "N+1", "N+2", "CPU", "5xx", "4xx", "2xx", "3xx", "XP", "HTTP", "DNS", "TTL", "TTLs",
+    "AWS", "Amazon", "CloudWatch", "CloudTrail", "CloudFormation", "CodeBuild", "CodeDeploy",
+    "CodePipeline", "EventBridge", "Lambda", "DynamoDB", "Aurora", "RDS", "EC2", "ECS", "EKS",
+    "S3", "SQS", "SNS", "IAM", "KMS", "VPC", "ALB", "NLB", "ELB", "Route 53", "Global Accelerator",
+    "Auto Scaling", "Systems Manager", "AppConfig", "Service Catalog", "Secrets Manager",
+    "Parameter Store", "Incident Manager", "Application Signals", "Contributor Insights",
+    "Synthetics", "X-Ray", "OpenTelemetry", "ADOT", "Fault Injection Service", "Resilience Hub",
+    "Compute Optimizer", "Cost Explorer", "Service Quotas", "Well-Architected", "Trusted Advisor",
+    "DevOps Guru", "Glue", "EMR", "Kinesis", "MSK", "Keyspaces", "ElastiCache", "WAF", "API Gateway",
+    "Step Functions", "Cloud Map", "App Mesh", "Elasticsearch", "Kafka", "ZooKeeper", "etcd",
+    "Kubernetes", "Terraform", "Ansible", "CDK", "Prometheus", "Grafana", "Paxos", "Raft", "Borg",
+    "Borgmon", "Chubby", "Bigtable", "Auxon", "Prodtest", "Rapid", "Workflow", "Outalator",
+    "Google", "Gmail", "Spot", "Savings Plans", "Organizations", "Config", "Backup", "Macie", "Signer"
+  ]
+}
