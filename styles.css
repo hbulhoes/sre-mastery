@@ -78,7 +78,12 @@
 }
 
 * { box-sizing: border-box; }
-html, body { height: 100%; }
+/* body must grow with the content, not be capped at the viewport: a sticky
+   element can only stick inside its containing block, so `height: 100%` here
+   would let the sticky header slide away mid-page while the sticky sidebar
+   stayed pinned, opening a gap between them. */
+html { height: 100%; }
+body { min-height: 100%; }
 body {
   margin: 0;
   background: var(--bg);
@@ -130,7 +135,7 @@ h1, h2, h3, h4 { font-family: var(--display); line-height: 1.15; text-wrap: bala
 .langtag { display: inline-block; margin-left: 6px; padding: 0 4px; border: 1px solid var(--line); border-radius: 3px; font-family: var(--mono); font-size: .58rem; letter-spacing: .06em; color: var(--ink-3); vertical-align: middle; }
 
 /* ---------- layout ---------- */
-.shell { display: grid; grid-template-columns: var(--sidebar-w) 1fr; min-height: calc(100% - var(--header-h)); }
+.shell { display: grid; grid-template-columns: var(--sidebar-w) 1fr; min-height: calc(100vh - var(--header-h) - env(safe-area-inset-top, 0px)); }
 .sidebar {
   border-right: 1px solid var(--line);
   background: var(--surface);
