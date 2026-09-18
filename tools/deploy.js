@@ -6,8 +6,12 @@
    first and refuses to publish if any of them fails.
 
    Usage:
-     node tools/deploy.js [--stack sre-track-site] [--region us-east-1]
-                          [--skip-checks] [--dry-run] [--no-wait]
+     node tools/deploy.js [--profile <name>] [--stack sre-track-site]
+                          [--region us-east-1] [--skip-checks] [--dry-run]
+                          [--no-wait]
+
+   --profile is passed to every AWS call, so the command is identical in
+   PowerShell, cmd and bash. It falls back to AWS_PROFILE when not given.
 
    Requires the AWS CLI v2 on PATH with credentials for the target account.
 */
@@ -23,6 +27,7 @@ const argOf = (n, d) => { const i = args.indexOf(n); return i >= 0 && args[i + 1
 
 const STACK = argOf('--stack', 'sre-track-site');
 const REGION = argOf('--region', 'us-east-1');
+const PROFILE = argOf('--profile', process.env.AWS_PROFILE || null);
 const DRY = flag('--dry-run');
 const NO_WAIT = flag('--no-wait');
 
@@ -102,7 +107,10 @@ function run(bin, argv, { capture = false, allowFail = false } = {}) {
   return capture ? (r.stdout || '').trim() : '';
 }
 
-const aws = (argv, opts) => run('aws', argv.concat(['--region', REGION]), opts);
+const aws = (argv, opts) => run('aws', argv.concat(
+  ['--region', REGION],
+  PROFILE ? ['--profile', PROFILE] : []
+), opts);
 
 // ---- 1. gate on the content validators -------------------------------------
 if (!flag('--skip-checks')) {
@@ -120,7 +128,7 @@ if (!flag('--skip-checks')) {
 }
 
 // ---- 2. read the target from the stack --------------------------------------
-console.log('\nreading stack ' + STACK + ' in ' + REGION);
+console.log('\nreading stack ' + STACK + ' in ' + REGION + (PROFILE ? ' as ' + PROFILE : ''));
 const outputsRaw = aws([
   'cloudformation', 'describe-stacks',
   '--stack-name', STACK,

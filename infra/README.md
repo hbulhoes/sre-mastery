@@ -31,10 +31,21 @@ If you passed `AlarmEmail`, confirm the SNS subscription from your inbox or the 
 ## Deploying the site
 
 ```bash
-node tools/deploy.js
+node tools/deploy.js --profile kb-AdministratorAccess
 ```
 
-That runs the three content validators, refuses to publish if any fails, reads the bucket and distribution from the stack outputs, syncs the 24 runtime files, pins content types, and invalidates the edge cache. Useful flags: `--dry-run` to print the AWS commands without running them, `--stack <name>` for a non-default stack, `--skip-checks` to bypass the validators, `--no-wait` to skip waiting on the invalidation.
+Identical in PowerShell, cmd and bash. Pass the profile as a flag rather than an environment variable, since `AWS_PROFILE=... node ...` is bash-only syntax and fails in PowerShell.
+
+That runs the three content validators, refuses to publish if any fails, reads the bucket and distribution from the stack outputs, syncs the 24 runtime files, pins content types, and invalidates the edge cache.
+
+| Flag | Effect |
+|---|---|
+| `--profile <name>` | AWS profile; falls back to `AWS_PROFILE` |
+| `--stack <name>` | Stack to read outputs from, default `sre-track-site` |
+| `--region <name>` | Default `us-east-1` |
+| `--dry-run` | Print the AWS commands without running them |
+| `--skip-checks` | Bypass the content validators |
+| `--no-wait` | Do not wait for the invalidation to finish |
 
 The script publishes from an **allowlist** built from `i18n/manifest.js`, staged into a temp directory, rather than syncing the repo root with exclusions. A denylist is one typo away from publishing `.git` to a CDN.
 

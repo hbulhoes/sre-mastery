@@ -80,10 +80,10 @@ The importer regenerates the locale's JavaScript from the English object with on
 The site is hosted as static files in a private S3 bucket behind CloudFront, on a subdomain, with an ACM certificate validated through Route 53. One CloudFormation stack defines all of it.
 
 ```bash
-node tools/deploy.js
+node tools/deploy.js --profile kb-AdministratorAccess
 ```
 
-That gates on the three checks below, refuses to publish if any fails, then syncs and invalidates. See [infra/README.md](infra/README.md) for the one-time stack creation, the caching design, the Content Security Policy and rollback.
+That gates on the three checks below, refuses to publish if any fails, then syncs and invalidates. The command is the same in PowerShell, cmd and bash. See [infra/README.md](infra/README.md) for the one-time stack creation, the caching design, the Content Security Policy and rollback.
 
 ## Checks
 
