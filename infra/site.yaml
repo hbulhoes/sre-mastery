@@ -95,6 +95,21 @@ Resources:
             Condition:
               StringEquals:
                 AWS:SourceArn: !Sub 'arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${Distribution}'
+          # Without ListBucket, S3 answers a request for a missing key with 403
+          # rather than 404, because it will not confirm whether the key exists
+          # to a caller that cannot list. Granting it to the CloudFront service
+          # principal makes a missing asset report an honest 404. Viewers cannot
+          # reach this permission: CloudFront only ever issues GetObject for the
+          # path requested, so the bucket still cannot be enumerated.
+          - Sid: AllowCloudFrontListForAccurate404
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:ListBucket
+            Resource: !GetAtt SiteBucket.Arn
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub 'arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${Distribution}'
 
   # ------------------------------------------------------------ certificate --
   # Supplying HostedZoneId lets CloudFormation write the validation record

@@ -73,13 +73,24 @@ function stage(files) {
   return dir;
 }
 
+/* Windows joins arguments into a command line when `shell` is set, without
+   quoting them, which splits any value containing a semicolon — such as a
+   content type with a charset. Spawning without a shell keeps arguments
+   intact. Fall back to a shell only if the binary cannot be found that way,
+   as happens when `aws` on PATH is a .cmd shim. */
+const USE_SHELL = (() => {
+  if (DRY) return false;
+  const probe = spawnSync('aws', ['--version'], { encoding: 'utf8', shell: false });
+  return !!probe.error;
+})();
+
 function run(bin, argv, { capture = false, allowFail = false } = {}) {
-  const pretty = bin + ' ' + argv.map(a => (/[\s*]/.test(a) ? JSON.stringify(a) : a)).join(' ');
+  const pretty = bin + ' ' + argv.map(a => (/[\s*;]/.test(a) ? JSON.stringify(a) : a)).join(' ');
   if (DRY) { console.log('  [dry-run] ' + pretty); return ''; }
   const r = spawnSync(bin, argv, {
     cwd: ROOT,
     encoding: 'utf8',
-    shell: process.platform === 'win32',   // find aws.cmd / aws.exe on Windows
+    shell: USE_SHELL,
     stdio: capture ? ['ignore', 'pipe', 'pipe'] : 'inherit'
   });
   if (r.error) { console.error('could not run: ' + pretty + '\n' + r.error.message); process.exit(1); }
